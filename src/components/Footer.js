@@ -51,7 +51,7 @@ export const Footer = ()=> {
             Tel (678) 417-5830<br />
             Fax (678) 417-5825</p>
           </Col>
-          <Col sm={3} style={{display:'none'}}>
+          <Col sm={3}>
             <h6>Follow us</h6>
             <p>
               <a href="https://www.facebook.com/woltersmotors1/" >

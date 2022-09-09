@@ -32,7 +32,7 @@ export const PartItem = ({ item, parts, setParts }) => {
       <td>{item['Manufacturer']}</td>
       <td>{item['Catalog or Item Number']}</td>
       <td style={{fontSize:'70%'}}>{item['Description'].split('.').join(' ')}</td>
-      <td className='hide-ipad' style={{display:'none'}}>
+      <td className='hide-ipad'>
         { selected 
         ? (<Button 
           variant="dark"

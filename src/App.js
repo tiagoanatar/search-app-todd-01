@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import menuBar from './assets/bars-solid.svg';
 import { useState, useEffect } from 'react';
 import { dataFinal } from './data/data';
 import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
@@ -36,27 +35,9 @@ function App() {
 
   // Modal
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <>
-      <a className="mobile-menu" style={{display: 'none'}} onClick={handleShow}><img alt="Display form" src={menuBar} width="40px" height="40px" /></a>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Body>
-          <QuoteForm 
-            parts={parts} 
-            setParts={setParts} 
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
       <Header />
       <Container>
         <Row>
@@ -65,7 +46,13 @@ function App() {
           </Col>
         </Row>
         <Row>
-          <Col lg={12}>
+          <Col lg={3} className="hide-desktop">
+            <QuoteForm 
+              parts={parts} 
+              setParts={setParts} 
+            />
+          </Col>
+          <Col lg={9}>
             <PartsTable 
               parts={parts} 
               setParts={setParts} 
@@ -74,8 +61,25 @@ function App() {
               pages={pages} 
             />
           </Col>
+          <Col lg={3} className="hide-mobile">
+            <QuoteForm 
+              parts={parts} 
+              setParts={setParts} 
+            />
+          </Col>
+        </Row>
+        <Row className="hide-mobile">
+          <Col>
+            <PartsPagination 
+              search={search} 
+              data={data} 
+              pageMultiplier={pageMultiplier} 
+              changePage={changePage} 
+            />
+          </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }

@@ -128,11 +128,32 @@ a:link {
   to { -webkit-transform: rotate(360deg); }
 }
 
+.top-phone {
+  display: 'flex';
+  align-items: 'center';
+  justify-content: 'right';
+}
+
+.hide-desktop {
+  display: none;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .top-phone {
+    float: left;
+  }
+
+  .footer ul {
+    margin-bottom: 25px;
+  }
+  
   .hide-mobile {
     display:none!important;
+  }
+
+  .hide-desktop {
+    display: block;
   }
 
   .show-mobile {
